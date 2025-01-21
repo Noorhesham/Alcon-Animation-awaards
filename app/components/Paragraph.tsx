@@ -44,7 +44,7 @@ const Paragraph = ({
         gsap.timeline().add(paragraphAnimation)
       } else {
         // Default ScrollTrigger animation to play this in multiple places on scroll
-        N.create({
+        ScrollTrigger.create({
           trigger: paragraphRef.current,
           start:()=> "top 90%",
           end: "bottom 40%",
