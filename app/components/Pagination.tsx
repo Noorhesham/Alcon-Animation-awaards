@@ -13,7 +13,8 @@ const Pagination = ({
   progress,
   handlePrev,
   className,
-  reverseColors,customPositions
+  reverseColors,
+  customPositions,
 }: {
   currentSlideIndex: number;
   handleNextSlide: () => void;
@@ -23,9 +24,9 @@ const Pagination = ({
   progress: number;
   handlePrev: () => void;
   className?: string;
-  reverseColors?: boolean;customPositions?:string
+  reverseColors?: boolean;
+  customPositions?: string;
 }) => {
-  const isMobile = window.innerWidth <= 768;
   const handleHover = (buttonClass: string, arrowClass: string) => {
     gsap.to(buttonClass, { backgroundColor: "black", duration: 0.3 });
     gsap.to(arrowClass, { color: "white", duration: 0.3 });
@@ -39,11 +40,9 @@ const Pagination = ({
   return (
     <div
       onClick={() => isClickable && handleNextSlide()}
-      className={`btn--nav ${
-        className || ""
-      }  w-3/4 h-24 ${customPositions?customPositions:"md:w-[calc(var(--spacing)*4)] md:h-[calc(var(--spacing)*8)]"}   bg-[#fa4500] z-30 ${
-        isClickable ? "cursor-pointer" : "pointer-events-none"
-      }`}
+      className={`btn--nav ${className || ""}  w-3/4 h-24 ${
+        customPositions ? customPositions : "md:w-[calc(var(--spacing)*4)] md:h-[calc(var(--spacing)*8)]"
+      }   bg-[#fa4500] z-30 ${isClickable ? "cursor-pointer" : "pointer-events-none"}`}
     >
       <div
         onMouseOver={(e) => {
